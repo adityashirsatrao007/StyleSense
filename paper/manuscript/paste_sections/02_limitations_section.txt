@@ -1,0 +1,20 @@
+PASTE THIS to replace old Discussion subsections ([126]-[138]):
+Delete: "System Limitations and Edge Cases" (3 subsections) and
+        "Methodologies for System Enhancement" (3 subsections)
+Replace with:
+
+---
+
+Discussion
+
+Limitations and Future Work.
+
+While the StyleSense framework achieves strong performance on the curated dataset, several limitations should be acknowledged.
+
+Dataset constraints: The 10,251-image dataset was captured under controlled conditions with consistent lighting and backgrounds. Real-world deployment involves unconstrained environments with varying illumination, occlusion, and camera quality. External validation on benchmarks such as DeepFashion2 (Jiang et al., 2019) would strengthen generalization claims.
+
+Architectural scope: The current model handles five predefined social categories. Extending to fine-grained sub-styles (e.g., smart casual vs. business casual) or cross-cultural attire would require additional training data and architectural modifications such as hierarchical classification heads or vision transformer backbones.
+
+Physiological profiling: The unified framework (Fig. 4) describes skin-tone and body-shape features in the architecture. The current implementation focuses on the visual classification pipeline; integrating real-time physiological feature extraction remains future work, potentially via lightweight skin-segmentation networks.
+
+Future directions include: (a) cross-dataset validation on DeepFashion2 and Fashion-MNIST benchmarks; (b) real-world user study with 100+ participants; (c) integration of physiological profiling; and (d) on-device deployment on Android and iOS with end-to-end latency benchmarking.

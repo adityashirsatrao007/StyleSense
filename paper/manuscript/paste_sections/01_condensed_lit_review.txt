@@ -1,0 +1,11 @@
+PASTE THIS to replace old Literature Review (paras [31]-[38]):
+
+---
+
+Related Work.
+
+Prior fashion recommendation systems have followed three directions: garment-type classification, attribute prediction, and style-based retrieval. DeepFashion (Liu et al., 2016) established large-scale benchmarks for garment recognition but focused on item-level classification rather than outfit-level style context. Amazon StyleSnap (2019) demonstrated visual similarity search for shoppable recommendations but relied on pre-curated product catalogs without user-specific profiling.
+
+Lightweight CNN architectures have enabled on-device inference. MobileNetV2 (Sandler et al., 2018) introduced inverted residuals and linear bottlenecks, achieving 3.4M parameters with competitive ImageNet accuracy. EfficientNet (Tan and Le, 2019) proposed compound scaling to balance accuracy and compute. MobileViT (Mehta and Rastegari, 2021) combined CNN locality with transformer global attention at 5.6M parameters.
+
+Existing systems treat visual features and user profiling as separate pipelines. Our work unifies them: a single MobileNetV2 backbone extracts visual embeddings from clothing images, while a parallel branch encodes skin tone and body-type attributes. This joint architecture enables personalized style classification across five social contexts (Business, Casual, Night Party, Sports, Wedding) with only 2.59M parameters and a 2.73 MB TFLite footprint suitable for real-time mobile deployment.
