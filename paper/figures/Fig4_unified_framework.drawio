@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="drawio" version="30.0.4">
+  <diagram name="Page-1">
+    <mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1032" pageHeight="1014" background="#ffffff">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1032" height="1014" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lbl1" value="Path A: Visual Pipeline" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#2C5F8A;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="300" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="img_in" value="Input Image&#xa;(224x224x3)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2C5F8A;fontColor=#FFFFFF;fontSize=18;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="70" y="60" width="220" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#888888;" edge="1" parent="1" source="img_in" target="mnet">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mnet" value="MobileNetV2&#xa;Encoder" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1A3A5C;fontColor=#FFFFFF;fontSize=18;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="70" y="220" width="220" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#888888;" edge="1" parent="1" source="mnet" target="gap">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="gap" value="GAP + Flatten&#xa;(Feature Vector)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1A3A5C;fontColor=#FFFFFF;fontSize=17;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="70" y="380" width="220" height="85" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lbl2" value="Path B: User Profiling" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#7B4EA0;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="680" y="20" width="300" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="user_in" value="User Attributes&#xa;(Skin Tone, Body Shape)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B4EA0;fontColor=#FFFFFF;fontSize=17;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="700" y="60" width="260" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#888888;" edge="1" parent="1" source="user_in" target="prof_enc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="prof_enc" value="Profile Encoder&#xa;(One-hot + Embed)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B4EA0;fontColor=#FFFFFF;fontSize=16;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="705" y="220" width="250" height="85" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#888888;" edge="1" parent="1" source="prof_enc" target="prof_feat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="prof_feat" value="User Feature&#xa;Vector" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B4EA0;fontColor=#FFFFFF;fontSize=17;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="725" y="375" width="210" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uni_box" value="Feature&#xa;Concatenation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D45D2B;fontColor=#FFFFFF;fontSize=18;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="366" y="520" width="300" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uni_label" value="Unified Feature Vector" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#D45D2B;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="366" y="605" width="300" height="18" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.33;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#1A3A5C;" edge="1" parent="1" source="gap" target="uni_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.66;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#7B4EA0;" edge="1" parent="1" source="prof_feat" target="uni_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=3;strokeColor=#D45D2B;" edge="1" parent="1" source="uni_box" target="clf">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="clf" value="FC(128) + Dropout&#xa;+ Softmax" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D45D2B;fontColor=#FFFFFF;fontSize=18;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="366" y="680" width="300" height="85" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=3;strokeColor=#2E7D32;" edge="1" parent="1" source="clf" target="out">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="out" value="Style Prediction" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E7D32;fontColor=#FFFFFF;fontSize=20;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="366" y="830" width="300" height="90" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
