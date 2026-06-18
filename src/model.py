@@ -57,7 +57,12 @@ def compile_model(model, learning_rate=config.LEARNING_RATE, label_smoothing=0):
 
 
 def unfreeze_model(model, fine_tune_at=config.FINE_TUNE_AT_LAYER):
-    base_model = model.layers[2]
+    base_model = next(
+        (l for l in model.layers if isinstance(l, tf.keras.Model)),
+        None,
+    )
+    if base_model is None:
+        raise ValueError("No sub-model found to unfreeze")
     for layer in base_model.layers[:fine_tune_at]:
         layer.trainable = False
     for layer in base_model.layers[fine_tune_at:]:
@@ -71,7 +76,7 @@ def unfreeze_model(model, fine_tune_at=config.FINE_TUNE_AT_LAYER):
 
 
 def get_callbacks(phase="phase1"):
-    is_phase2 = phase == "phase2"
+    is_phase2 = phase in ("phase2", "ft")
     prefix = "ft" if is_phase2 else "pt"
 
     early_stopping = tf.keras.callbacks.EarlyStopping(

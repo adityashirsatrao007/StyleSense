@@ -43,13 +43,12 @@ plt.rcParams.update({
 })
 
 
-def evaluate_model(model, validation_generator):
-    val_steps = validation_generator.samples // validation_generator.batch_size
-    predictions = model.predict(validation_generator, steps=val_steps + 1, verbose=1)
+def evaluate_model(model, val_dataset, class_info):
+    y_true = np.concatenate([tf.argmax(y, axis=1).numpy() for _, y in val_dataset])
+    predictions = model.predict(val_dataset, verbose=1)
     y_pred = np.argmax(predictions, axis=1)
-    y_true = validation_generator.classes
 
-    class_labels = list(validation_generator.class_indices.keys())
+    class_labels = class_info["class_names"]
 
     acc = accuracy_score(y_true, y_pred)
     precision, recall, f1, _ = precision_recall_fscore_support(
