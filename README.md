@@ -96,7 +96,9 @@ pip install -r requirements.txt
 
 ### 2. Prepare Dataset
 
-Organize images by class in `data/raw/`:
+Images are not committed to this repo. Download a fashion dataset
+(e.g. the [Kaggle Fashion Product Images](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-small)
+archive) and organize it by class in `data/raw/`:
 
 ```
 data/raw/
